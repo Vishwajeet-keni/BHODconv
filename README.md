@@ -1,2 +1,2 @@
-# BHODconv.py
+# BHODconv
 interconversion between Binary , Hexadecimal , Octal , Decimal in Python
