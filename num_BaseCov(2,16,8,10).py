@@ -46,3 +46,23 @@ elif x.endswith("HEX"):
         y=Conv.H2D(x)
         print(f"\nYour Input: {x}.hex      \
                 \nRequired Output: {y}.oct")
+        
+elif x.endswith("OCT"):
+    x=x[:-4]
+    y=input("\nEnter_type_of_output_you_require_|" \
+            "\n.bin: Binary      .eg(Enter-> .bin)"\
+            "\n.hex: Hexadecimal .eg(Enter-> .oct)"\
+            "\n.dec: Decimal     .eg(Enter-> .dec)"\
+            "\nOutput: ").upper()
+    if y==".BIN":
+        y=Conv.O2B(x)
+        print(f"\nYour Input: {x}.oct      \
+                \nRequired Output: {y}.bin")
+    elif y==".HEX":
+        y=Conv.O2H(x)
+        print(f"\nYour Input: {x}.hex      \
+                \nRequired Output: {y}.hex")
+    elif y==".DEC":
+        y=Conv.O2D(x)
+        print(f"\nYour Input: {x}.oct      \
+                \nRequired Output: {y}.dec")
