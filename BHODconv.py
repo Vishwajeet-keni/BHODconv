@@ -1,4 +1,4 @@
-# Main Functions 
+# Main/Fundamental Functions 
 def D2B(D): # Decimal to Binary
     D=int(D) 
     if D==0:
@@ -49,7 +49,7 @@ def O2B(O): # Octal to Binary
    for digit in O:
       B+=oMap[digit]
    return B
-# Sub Function
+# Sub/Dependent Function
 def D2H(D): # Decimal to Hexadecimal
    H=B2H(D2B(D))
    return H
