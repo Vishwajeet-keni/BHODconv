@@ -1,5 +1,6 @@
 # Main Functions 
-def D2B(D): # Decimal to Binary 
+def D2B(D): # Decimal to Binary
+    D=int(D) 
     if D==0:
      return"0"
     B=""

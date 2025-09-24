@@ -51,7 +51,7 @@ elif x.endswith("OCT"):
     x=x[:-4]
     y=input("\nEnter_type_of_output_you_require_|" \
             "\n.bin: Binary      .eg(Enter-> .bin)"\
-            "\n.hex: Hexadecimal .eg(Enter-> .oct)"\
+            "\n.hex: Hexadecimal .eg(Enter-> .hex)"\
             "\n.dec: Decimal     .eg(Enter-> .dec)"\
             "\nOutput: ").upper()
     if y==".BIN":
@@ -60,9 +60,29 @@ elif x.endswith("OCT"):
                 \nRequired Output: {y}.bin")
     elif y==".HEX":
         y=Conv.O2H(x)
-        print(f"\nYour Input: {x}.hex      \
+        print(f"\nYour Input: {x}.oct      \
                 \nRequired Output: {y}.hex")
     elif y==".DEC":
         y=Conv.O2D(x)
         print(f"\nYour Input: {x}.oct      \
                 \nRequired Output: {y}.dec")
+        
+elif x.endswith("DEC"):
+    x=x[:-4]
+    y=input("\nEnter_type_of_output_you_require_|" \
+            "\n.bin: Binary      .eg(Enter-> .bin)"\
+            "\n.hex: Hexadecimal .eg(Enter-> .hex)"\
+            "\n.dec: Decimal     .eg(Enter-> .oct)"\
+            "\nOutput: ").upper()
+    if y==".BIN":
+        y=Conv.D2B(x)
+        print(f"\nYour Input: {x}.dec      \
+                \nRequired Output: {y}.bin")
+    elif y==".HEX":
+        y=Conv.D2H(x)
+        print(f"\nYour Input: {x}.dec      \
+                \nRequired Output: {y}.hex")
+    elif y==".OCT":
+        y=Conv.D2O(x)
+        print(f"\nYour Input: {x}.dec      \
+                \nRequired Output: {y}.oct")
