@@ -10,31 +10,29 @@ def valid_input():
          "\nInput: ").upper()
  # catching Error in input
  try:
-     print("\n___________________________________"
+     print("\n______________________________________"
            "\nInput_Error_Handler:"
-           "\n-----------------------------------")
+           "\n--------------------------------------")
      if x.endswith(".BIN") or x.endswith(".HEX") or x.endswith(".OCT") or x.endswith(".DEC"):
          print("Valid Input")
          re_run=""
      else:
          re_run=input("Invalid Input"
                       "\nCode Terminated"
-                      "\n-----------------------------------"
+                      "\n--------------------------------------"
                       "\nWant to run the program again(Y/N):").upper()
  finally:
      if re_run=="Y":
         print("Re running program..."
-              "\n___________________________________")
+              "\n______________________________________")
         x=valid_input()
         return x 
      elif re_run=="N":
           print("Exiting program..."
-                "\n___________________________________")
+                "\n______________________________________")
      else:
-        print("___________________________________")
+        print("______________________________________")
         return x
-
-
 def valid_required_output(x):
  global re_run
  if x.endswith(".BIN"):
@@ -78,7 +76,7 @@ def valid_required_output(x):
      if re_run=="Y":
         print("Re running program..."
               "\n___________________________________")
-        y=valid_required_output()
+        y=valid_required_output(x)
         return y 
      elif re_run=="N":
           print("Exiting program..."
@@ -86,74 +84,83 @@ def valid_required_output(x):
      else:
         print("___________________________________")
         return y
+def required_output(x,y):
+#bin-->hex,oct,dec
+ if x.endswith(".BIN") and y==".HEX":
+     x=(x[:-4]) #removes last 3 terms
+     y=Conv.B2H(x)
+     print(f"\nYour Input: {x}.bin      \
+             \nRequired Output: {y}.hex")
+ elif x.endswith(".BIN") and y==".OCT":
+     x=(x[:-4])
+     y=Conv.B2O(x)
+     print(f"\nYour Input: {x}.bin      \
+             \nRequired Output: {y}.oct")
+ elif x.endswith(".BIN") and y==".DEC":
+     x=(x[:-4])
+     y=Conv.B2D(x)
+     print(f"\nYour Input: {x}.bin      \
+             \nRequired Output: {y}.dec")
+        
+#hex-->bin,oct,dec
+ elif x.endswith(".HEX") and y==".BIN":
+     x=x[:-4]
+     y=Conv.H2B(x)
+     print(f"\nYour Input: {x}.hex      \
+             \nRequired Output: {y}.bin")
+ elif x.endswith(".HEX") and  y==".OCT":
+     x=x[:-4]
+     y=Conv.H2O(x)
+     print(f"\nYour Input: {x}.hex      \
+             \nRequired Output: {y}.oct")
+ elif x.endswith(".HEX") and  y==".DEC":
+     x=x[:-4]
+     y=Conv.H2D(x)
+     print(f"\nYour Input: {x}.hex      \
+             \nRequired Output: {y}.dec")
+        
+#oct-->bin,hex,dec
+ elif x.endswith(".OCT") and y==".BIN":
+     x=x[:-4]
+     y=Conv.O2B(x)
+     print(f"\nYour Input: {x}.oct      \
+             \nRequired Output: {y}.bin")
+ elif x.endswith(".OCT") and  y==".HEX":
+     x=x[:-4]
+     y=Conv.O2H(x)
+     print(f"\nYour Input: {x}.oct      \
+             \nRequired Output: {y}.hex")
+ elif x.endswith(".OCT") and  y==".DEC":
+     x=x[:-4]
+     y=Conv.O2D(x)
+     print(f"\nYour Input: {x}.oct      \
+             \nRequired Output: {y}.dec")
+        
+#dec-->bin,hex,oct
+ elif x.endswith("DEC") and y==".BIN":
+     x=x[:-4]
+     y=Conv.D2B(x)
+     print(f"\nYour Input: {x}.dec      \
+             \nRequired Output: {y}.bin")
+ elif x.endswith("DEC") and  y==".HEX":
+     x=x[:-4]
+     y=Conv.D2H(x)
+     print(f"\nYour Input: {x}.dec      \
+             \nRequired Output: {y}.hex")
+ elif x.endswith("DEC") and  y==".OCT":
+     x=x[:-4]
+     y=Conv.D2O(x)
+     print(f"\nYour Input: {x}.dec      \
+             \nRequired Output: {y}.oct")
 
 x=valid_input()
 y=valid_required_output(x) 
+required_output(x,y)
 
-#bin-->hex,oct,dec
-if x.endswith(".BIN") and y==".HEX":
-    x=(x[:-4]) #removes last 3 terms
-    y=Conv.B2H(x)
-    print(f"\nYour Input: {x}.bin      \
-            \nRequired Output: {y}.hex")
-elif x.endswith(".BIN") and y==".OCT":
-    x=(x[:-4])
-    y=Conv.B2O(x)
-    print(f"\nYour Input: {x}.bin      \
-            \nRequired Output: {y}.oct")
-elif x.endswith(".BIN") and y==".DEC":
-    x=(x[:-4])
-    y=Conv.B2D(x)
-    print(f"\nYour Input: {x}.bin      \
-            \nRequired Output: {y}.dec")
-        
-#hex-->bin,oct,dec
-elif x.endswith(".HEX") and y==".BIN":
-    x=x[:-4]
-    y=Conv.H2B(x)
-    print(f"\nYour Input: {x}.hex      \
-            \nRequired Output: {y}.bin")
-elif x.endswith(".HEX") and  y==".OCT":
-    x=x[:-4]
-    y=Conv.H2O(x)
-    print(f"\nYour Input: {x}.hex      \
-            \nRequired Output: {y}.oct")
-elif x.endswith(".HEX") and  y==".DEC":
-    x=x[:-4]
-    y=Conv.H2D(x)
-    print(f"\nYour Input: {x}.hex      \
-            \nRequired Output: {y}.oct")
-        
-#oct-->bin,hex,dec
-elif x.endswith(".OCT") and y==".BIN":
-    x=x[:-4]
-    y=Conv.O2B(x)
-    print(f"\nYour Input: {x}.oct      \
-            \nRequired Output: {y}.bin")
-elif x.endswith(".OCT") and  y==".HEX":
-    x=x[:-4]
-    y=Conv.O2H(x)
-    print(f"\nYour Input: {x}.oct      \
-            \nRequired Output: {y}.hex")
-elif x.endswith(".OCT") and  y==".DEC":
-    x=x[:-4]
-    y=Conv.O2D(x)
-    print(f"\nYour Input: {x}.oct      \
-            \nRequired Output: {y}.dec")
-        
-#dec-->bin,hex,oct
-elif x.endswith("DEC") and y==".BIN":
-    x=x[:-4]
-    y=Conv.D2B(x)
-    print(f"\nYour Input: {x}.dec      \
-            \nRequired Output: {y}.bin")
-elif x.endswith("DEC") and  y==".HEX":
-    x=x[:-4]
-    y=Conv.D2H(x)
-    print(f"\nYour Input: {x}.dec      \
-            \nRequired Output: {y}.hex")
-elif x.endswith("DEC") and  y==".OCT":
-    x=x[:-4]
-    y=Conv.D2O(x)
-    print(f"\nYour Input: {x}.dec      \
-            \nRequired Output: {y}.oct")
+re_run=str(input("--------------------------------------"
+             "\nWant to run the program again?(y/n): ").lower())
+print("___________________________________")
+if re_run=="y":
+    x=valid_input()
+    y=valid_required_output(x) 
+    required_output(x,y)
