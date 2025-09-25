@@ -1,11 +1,29 @@
 import BHODconv as Conv
 
-x=input("Enter_proper_sufix_for_type_of_input_|"  \
-      "\n.bin: Binary      .eg(Enter-> 1011.bin)" \
-      "\n.hex: Hexadecimal .eg(Enter-> A5.hex)"   \
-      "\n.oct: Octal       .eg(Enter-> 856.oct)"  \
-      "\n.dec: Decimal     .eg(Enter-> 245.dec)"  \
+x=input("Enter_proper_sufix_for_type_of_input_|"  
+      "\n.bin: Binary      .eg(Enter-> 1011.bin)" 
+      "\n.hex: Hexadecimal .eg(Enter-> A5.hex)"   
+      "\n.oct: Octal       .eg(Enter-> 856.oct)"  
+      "\n.dec: Decimal     .eg(Enter-> 245.dec)"  
       "\nInput: ").upper()
+# catching Error in input
+try:
+    print("\n____________________"
+          "\nInput_Error_Handler:"
+          "\n--------------------")
+    if x.endswith("BIN") or x.endswith("HEX") or x.endswith("OCT") or x.endswith("DEC"):
+        print("Valid Input")
+    else:
+        re_run=input("Invalid Input"
+              "\nCode Terminated"
+              "\n--------------------"
+              "\nWant to run the program again(Y/N):").upper()
+finally:
+    if re_run=="N":
+     print("____________________")
+    if re_run=="Y":
+     print("Re running..."
+           "\n____________________")
 
 if x.endswith("BIN"):
     x=(x[:-4]) #removes last 3 terms 
