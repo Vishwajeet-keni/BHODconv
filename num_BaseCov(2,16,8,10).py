@@ -59,7 +59,7 @@ def valid_required_output(x):
             "\n.hex: Hexadecimal .eg(Enter-> .hex)"
             "\n.oct: Octal       .eg(Enter-> .oct)"
             "\nOutput: ").upper()
-# catching Error in required ourput request
+# catching Error in required output request
  try:
      print("\n___________________________________"
           "\nRequired_Output_Error_Handler:"
@@ -164,3 +164,6 @@ if re_run=="y":
     x=valid_input()
     y=valid_required_output(x) 
     required_output(x,y)
+else:
+    print("Exiting program..."
+          "\n___________________________________")
